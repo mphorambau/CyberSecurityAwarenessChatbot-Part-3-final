@@ -1,0 +1,24 @@
+name: Windows .NET 10 Build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Display SDK
+        run: dotnet --info
+      - name: Restore dependencies
+        run: dotnet restore CyberSecurityAwarenessChatbot.csproj
+      - name: Build Release
+        run: dotnet build CyberSecurityAwarenessChatbot.csproj --configuration Release --no-restore
