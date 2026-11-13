@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\greeting.wav" Condition="Exists('Assets\greeting.wav')">
